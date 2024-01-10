@@ -1,0 +1,71 @@
+/*font-family: 'Noto Color Emoji', sans-serif;
+font-family: 'Rajdhani', sans-serif;
+font-family: 'Teko', sans-serif;*/
+
+* {
+ box-sizing: border-box;
+ margin: 0;
+font-family: 'Teko', sans-serif;
+font-weight: 300;
+letter-spacing: .8px;
+}
+
+body {
+ margin: 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ 
+}
+
+main {
+ display: -webkit-inline-box;
+ 
+}
+.mainContent{
+ padding: 5px;
+ opacity: 0;
+ display: flex;
+ flex-direction: column;
+ box-shadow: 2px black;
+ height: 300px;
+ width: 180px;
+ overflow: hidden;
+ transform: translateY(160px);
+ transition: box-shadow 250ms ease-in-out;
+ transition: all .5s ease-in-out;
+}
+.mainContent.isOn{
+ transform: translateY(0);
+ opacity: 1;
+}
+.mainContent:hover{
+ box-shadow: 0 0 4px #00000033;
+}
+
+.mainContent img{
+ padding: 0 0 0 0;
+ overflow: hidden;
+ width: 100%;
+ height: 45%;
+ 
+}
+.mainContent div{
+ padding: 5px 30px 30px 10px;
+ border-color: orange;
+ width: 100%;
+ overflow: scroll;
+ color: red;
+ font-size: 20px;
+ height: 55%;
+}
+
+.pdesc{
+ font-size: 20px;
+ line-height: 30px;
+ letter-spacing: 1px;
+}
+
+.h1title {
+ font-size: 32px;
+}
