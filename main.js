@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
  // !! !!STORAGE RESET FUNCTION!! !! //
 
 
- //localStorage.clear();
+ localStorage.clear();
 
 
  ///---- JavaScript Availability ----///
