@@ -162,7 +162,7 @@ a {
  color: #FFF;
  opacity: 0;
  text-indent: -160px;
- font-size: 30px;
+ font-size: 40px;
  color: transparent;
  overflow: hidden;
  transition: all 2s .5s , width 1s, opacity .2s;
@@ -540,10 +540,12 @@ a {
  height: 800px;
  background-color: #7194CC1F;
  overflow: hidden;
+ --opacity: 1;
 }
 
 #articleODay::after{
  content: '';
+ opacity: var(--opacity);
  position: absolute;
  top: 0;
  left: 0;
@@ -620,4 +622,4 @@ a {
  #aODImg {
   width: 100%;
  }
- }
+}
