@@ -387,11 +387,11 @@ document.addEventListener('DOMContentLoaded', () => {
    if (!isOn) {
     document.getElementById('articleODay').style.height = 'auto';
     document.getElementById('expandAOD').classList.add('expanded');
-    document.getElementById('articleODay').style.setProperty('--opacity','0');
+    document.getElementById('articleODay').style.setProperty('--opacity','none');
     isOn = true;
    } else {
     document.getElementById('articleODay').style.height = '800px';
-    document.getElementById('articleODay').style.setProperty('--opacity','1');
+    document.getElementById('articleODay').style.setProperty('--opacity','block');
     document.getElementById('expandAOD').classList.remove('expanded');
     isOn = false;
    }
