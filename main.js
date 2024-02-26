@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
    } else {
     document.getElementById('articleODay').style.height = '800px';
     document.getElementById('expandAOD').classList.remove('expanded');
-    document.styleSheets[1].cssRules[57].style.opacity = '1';
+    document.styleSheets[1].cssRules[56].style.opacity = '1';
     isOn = false;
    }
   });
