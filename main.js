@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
  // !! !!STORAGE RESET FUNCTION!! !! //
 
 
- localStorage.clear();
+ //localStorage.clear();
 
 
  ///---- JavaScript Availability ----///
@@ -387,12 +387,12 @@ document.addEventListener('DOMContentLoaded', () => {
    if (!isOn) {
     document.getElementById('articleODay').style.height = 'auto';
     document.getElementById('expandAOD').classList.add('expanded');
-    document.styleSheets[1].cssRules[56].style.opacity = '0';
+    document.getElementById('articleODay').style.setProperty('--opacity','0');
     isOn = true;
    } else {
     document.getElementById('articleODay').style.height = '800px';
+    document.getElementById('articleODay').style.setProperty('--opacity','1');
     document.getElementById('expandAOD').classList.remove('expanded');
-    document.styleSheets[1].cssRules[56].style.opacity = '1';
     isOn = false;
    }
   });
