@@ -540,12 +540,12 @@ a {
  height: 800px;
  background-color: #7194CC1F;
  overflow: hidden;
- --opacity: 1;
+ --opacity: block;
 }
 
 #articleODay::after{
  content: '';
- opacity: var(--opacity);
+ display: var(--opacity);
  position: absolute;
  top: 0;
  left: 0;
