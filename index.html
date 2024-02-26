@@ -1,318 +1,550 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
  <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=100.0, user-scalable=yes">
  <meta name="description" content="Your page description here">
- <meta name="keywords" content="Your, Page, Keywords">
+ <meta name="keywords" content="Health, Fitness, Strength, Agility, Wellbeing, Sports">
  <meta name="author" content="D1D">
- <meta name="theme-color" content="#ffffff">
- <meta property="og:title" content="Dynamax">
+ <meta name="theme-color" content="#D6F0FD">
+ <meta property="og:title" content="Vitalest">
  <meta property="og:description" content="Your page description">
  <meta property="og:image" content="https://example.com/your-page-image.jpg">
  <meta property="og:url" content="https://example.com/your-page-url">
 
- <title>Dynamax</title>
+ <title>Vitalest</title>
 
- <link rel="stylesheet" href="style.css">
+
+ <link rel="stylesheet" tyoe="text/css" href="style.css">
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Rajdhani:wght@300;500&family=Teko:wght@300&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Rajdhani:wght@300;500&family=Teko:wght@300&family=Kanit:ital,wght@1,800&display=swap" rel="stylesheet">
  <link rel="icon" href="logo.jpg">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+ <script>
+  eruda.init();
+ </script> -->
  <script src="main.js"></script>
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
-<body>
-<div class="jsCheck" style="
+<!-- JavaScript Check -->
+
+<div id="jsCheck" style="
+z-index: 500;
+display: block;
+height: 100vh;
+font-family: Courier;
 background-color: orange;
+padding: 20px;
 color: darkred;
-font-weight: 600;
-letter-spacing: 2px;
+font-weight: 700;
+letter-spacing: -2.5px;
 word-spacing: 10px;
-font-size: 40px;
+font-size: 35px;
 ">
- Please Enable JavaScript</div>
- <div style="
- height: 300px;
- background-color: #121520;
- z-index: 101;
- "></div>
+ Please Enable JavaScript(;<br><br> Make Sure Your Browser Supports It (<||.<br><br> Or Just... Refresh The Page (⁠＾⁠3⁠＾)</div>
 
+<div id="orientationMessage" style="
+position: fixed;
+z-index: 500;
+display: none;
+height: 100vh;
+width: 100vw;
+background-color: #ccc;
+font-family: monospace;
+">
+ Window Size Not Supported
+</div>
 
+<body>
+ <!-- Loading Animation -->
 
- <!-- The Top Navigation Bar -->
+ <div id="loadingWrapper">
+  <div id="loading"></div>
+ </div>
 
+ <!-- Alert Modal -->
 
+ <div id="alertModalWrapper">
+  <div id="alertModal">
+   <div id="alertModalContent" style="
+   margin: 20px;
+   position: absolute;
+   bottom: -10px;
+   height: 70%;
+   color: #fff;
+   text-shadow: 0 0 1px #000;
+   "></div>
+   <div id="alertModalEscape">
+    <div style="
+    width: 30px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    top: calc(30% - 1px);
+    border-radius: 3px;
+    box-shadow: 0 0 1px #0005;
+    transform: translate(0,5px) rotate(-45deg);
+    "></div>
+    <div style="
+    width: 30px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    top: calc(60% - 1px);
+    border-radius: 3px;
+    box-shadow: 0 0 1px #0005;
+    transform: translate(0,-4px) rotate(45deg);
+    "></div>
+   </div>
+  </div>
+ </div>
 
- <div class="topNavBar" style="
- z-index: 100;
+ <div id="introDiv">
+  <canvas id="starsCanvas" style="
+z-index: -1000;
+position: absolute;
+top: 0;
+padding: 0;
+width: 100vw;
+height: 100%;
+background-color: #0000;">
+  </canvas>
+  <canvas id="arrowCanvas" width="2000" height="2000"></canvas>
+  <div style="
+  display: flex;
+  width: 80%;
+  position: relative;
+  top: calc(50% + 50px);
+  left: calc(50% - 40%);
+  justify-content: space-between;
+  ">
+  <div class="slogan">For Health</div>
+  <div class="slogan">And Strength</div></div>
+ </div>
+
+ <div id="topNavBar" style="
+ z-index: 300;
  position: sticky;
  top: 0;
+ height: 50px;
+ width: 100%;
+ margin: 0;
  display: flex;
- flex-direction: row;
- width: 100vw;
- overflow: hidden;
- padding: 10px;
+ background-color: #010007C5;
+ backdrop-filter: blur(10px);
+ box-shadow: 0 0 15px #000D;
  color: white;
- background-image: linear-gradient(to bottom,#121520, black);
+ border-bottom: 1px dotted #444;
  ">
 
 
   <!-- The Side Navigation Button -->
 
 
-  <div class="navBtn" style="
- height: 70px;
- width: 60px;
- transform: translateY(5px);
- ">
+  <div id="navBtn">
 
 
    <!-- The Button's Bars -->
 
-
    <div class="navBar" style="
-  position: relative;
-  top: 30px;
-  left: 4px;
-  height: 10px;
-  width: 50px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all .2s ease-in;
-  ">
+     position: relative;
+     top: calc(50% - 4px/2);
+     left: calc(50% - 30px/2);
+     height: 4px;
+     width: 30px;
+     background-color: white;
+     border-radius: 2px;
+     transition: all .2s ease-in;
+     ">
    </div>
 
    <div class="navBar" style="
-  position: relative;
-  top: 5px;
-  left: 4px;
-  height: 10px;
-  width: 50px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all .2s ease-in;
-  ">
+     position: relative;
+     top: 6px;
+     left: calc(50% - 30px/2);
+     height: 4px;
+     width: 30px;
+     background-color: white;
+     border-radius: 2px;
+     transition: all .2s ease-in;
+     ">
    </div>
 
+
    <div class="navBar" style="
-  position: relative;
-  top: 25px;
-  left: 4px;
-  height: 10px;
-  width: 50px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all .2s ease-in;
-  ">
+     position: relative;
+     top: calc(50% - 2px);
+     left: calc(50% - 30px/2);
+     height: 4px;
+     width: 30px;
+     background-color: white;
+     border-radius: 2px;
+     transition: all .2s ease-in;
+     ">
    </div>
+
 
   </div>
 
 
   <!-- The Logo -->
 
-  <div style="
-  margin: 5px;
-  padding: 5px;
-  height: 70px;
-  width: 180px;
-  overflow: hidden;
-  font-size: 60px;
-  letter-spacing: -2px;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  ">
-   <div style="
-  transform: scaleY(1.1) scaleX(.9) translateX(-20px) translateY(-10px);
-">
-    Dynamax
+
+  <div id="logoContainer">
+   <div id="logo">
+    Vitalest
    </div>
   </div>
+
+  <canvas id="profileCanvas" width="2000" height="2000" style="">
+   <!--Tab to edit-->
+  </canvas>
  </div>
 
-
-
- <!-- The Side Navigation Bar/Menu -->
-
-
+ <div id="themeSwitchContainer">
+  <div id="themeSwitch"></div>
+ </div>
 
  <!-- The Wrapper -->
 
-
- <div class="theWrapper">
-
-
-
-  <!-- The Side Navigation Button -->
-
-
-  <div class="navBtn" style="
- position: fixed;
- right: 10px;
- top: 10px;
- height: 70px;
- width: 60px;
- transform:  scale(.8);
- ">
-
-
-   <!-- The Button's Bars -->
-
-
-   <div class="navBar" style="
-  position: relative;
-  top: 30px;
-  left: 4px;
-  height: 10px;
-  width: 50px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all .5s ease-in;
-  ">
-   </div>
-
-   <div class="navBar" style="
-  position: relative;
-  top: 5px;
-  left: 4px;
-  height: 10px;
-  width: 50px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all .3s ease-in;
-  ">
-   </div>
-
-   <div class="navBar" style="
-  position: relative;
-  top: 25px;
-  left: 4px;
-  height: 10px;
-  width: 50px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all .3s ease-in;
-  ">
-   </div>
-
-  </div>
-
+ <div id="theWrapper">
 
   <!-- The Side Navigation Content -->
 
+ <canvas id="fullscreenTrigger" style="
+  position: fixed;
+  top: 10px;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+  background-color: #4449;
+  border-radius: 25%;
+  "></canvas>
 
-  <div class="navContent">
-   <div class="navItems">
-   
-   <a class="navItem" href="#"><div class="navLogo"></div><div class="navItemTitle"><div>Home</div></div></a>
-   <a class="navItem" href="#"><div class="navLogo"></div><div class="navItemTitle"><div>Goals</div></div></a>
-   <a class="navItem" href="#"><div class="navLogo"></div><div class="navItemTitle"><div>Exercise</div></div></a>
-   <a class="navItem" href="#"><div class="navLogo"></div><div class="navItemTitle"><div>Diet</div></div></a>
-   <a class="navItem" href="#"><div class="navLogo"></div><div class="navItemTitle"><div>LifeStyle</div></div></a>
-   <a class="navItem" href="#"><div class="navLogo"></div><div class="navItemTitle"><div>Shopping</div></div></a>
+ <div id="navContent">
+   <div id="navItems">
+    <a class="navItem" href="#">
+     <div class="navLogo">
+   <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="-6 -4 36 36" width="100%" fill="#fff"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+     <div class="navItemTitle">
+     HOME
+     </div>
+    </a>
+    <a class="navItem" href="#">
+     <div class="navLogo">
+      <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -1100 880 1240" width="100%" fill="#fff"><path d="M160-400v-80h280v80H160Zm0-160v-80h440v80H160Zm0-160v-80h440v80H160Zm360 560v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg>
+     </div>
+     <div class="navItemTitle">
+      Plans
+     </div>
+    </a>
+    <a class="navItem" href="#">
+     <div class="navLogo">
+<svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="-100 -1140 1240 1480" width="100%" fill="#fff"><path d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM360-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm400-160q0 66-47 113t-113 47q-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0 320Zm0-400Z"/></svg>
+     </div>
+     <div class="navItemTitle">
+      Coaching
+     </div>
+    </a>
+    <a class="navItem" href="#">
+     <div class="navLogo">
+      <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -1160 1040 1460" width="100%" fill="#fff"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg></div>
+     <div class="navItemTitle">
+      Shopping
+     </div>
+    </a>
+    <a class="navItem" href="#">
+     <div class="navLogo">
+      <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -1200 960 1480" width="100%" fill="#fff"><path d="m175-120-56-56 410-410q-18-42-5-95t57-95q53-53 118-62t106 32q41 41 32 106t-62 118q-42 44-95 57t-95-5l-50 50 304 304-56 56-304-302-304 302Zm118-342L173-582q-54-54-54-129t54-129l248 250-128 128Z"/></svg>
+     </div>
+     <div class="navItemTitle">
+      Diets
+     </div>
+    </a>
+    <a class="navItem" href="#">
+     <div class="navLogo">
+      <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 -1160 960 1480" width="100%" fill="#fff"><path d="m536-84-56-56 142-142-340-340-142 142-56-56 56-58-56-56 84-84-56-58 56-56 58 56 84-84 56 56 58-56 56 56-142 142 340 340 142-142 56 56-56 58 56 56-84 84 56 58-56 56-58-56-84 84-56-56-58 56Z"/></svg>
+     </div>
+     <div class="navItemTitle">
+      Exercises
+     </div>
+    </a>
    </div>
   </div>
 
  </div>
 
+ <!-- The Page's Main Content -->
 
+ <div id="pageContent" style="
+ display: none;
+ opacity: 0;
+ height: auto;">
+  <div style="
+  height: 600px;
+  padding: 5px;
+  overflow: hidden;
+  ">
+   <div style="padding: 15px">Trends:
+   </div>
+   <div class="miniArticles">
+    <img class="miniArticlesImg" src="logo.jpg" alt="">
+    <div class="miniArticlesTxt">Lorem Ipsum No Or Cabli So Ridas No Mogma Doruis</div>
+   </div>
 
-<!-- The Page's Main Content -->
+   <div class="miniArticles">
+    <img class="miniArticlesImg" src="logo.jpg" alt="">
+    <div class="miniArticlesTxt">Lorem Ipsum No Or Cabli So Ridas No Mogma Doruis</div>
+   </div>
 
+   <div class="miniArticles">
+    <img class="miniArticlesImg" src="logo.jpg" alt="">
+    <div class="miniArticlesTxt">Lorem Ipsum No Or Cabli So Ridas No Mogma Doruis</div>
+   </div>
 
+   <div class="miniArticles">
+    <img class="miniArticlesImg" src="logo.jpg" alt="">
+    <div class="miniArticlesTxt">Lorem Ipsum No Or Cabli So Ridas No Mogma Doruis</div>
+   </div>
 
- <div class="pageContent">
-  <div style="height: 800px">
-   hello!
+   <div class="miniArticles">
+    <img class="miniArticlesImg" src="logo.jpg" alt="">
+    <div class="miniArticlesTxt">Lorem Ipsum No Or Cabli So Ridas No Mogma Doruis</div>
+   </div>
   </div>
 
-
-
-<!-- The Articles Section -->
-
-
-
-    <div style="
-    margin: 10px 3px;
-    height: 40px;
-    font-size: 30px;
+  <div style="
+    margin: 40px;
+    height: 55px;
+    font-size: 45px;
     font-weight: 600;
     ">
 
 
-Popular Articles:
-    </div>
-  <div class="articles">
-   <div class="article">
-    <img class="webimg" src="logo.jpg" alt="">
-    <div class="artclTxtContainer">
-     <div class="artclTitle">
-     Everything About Pull-Ups And Their Variations
-     </div>
-     <div class="artclDesc">
-      The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+   Articles:
+  </div>
 
-     </div>
-    </div>
-   </div>
-   <div class="article">
-    <img class="webimg" src="logo.jpg" alt="">
-    <div class="artclTxtContainer">
-     <div class="artclTitle">
-     Everything About Pull-Ups And Their Variations
-     </div>
-     <div class="artclDesc">
-      The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+  <div id="articles">
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
 
+      </div>
      </div>
     </div>
    </div>
-   <div class="article">
-    <img class="webimg" src="logo.jpg" alt="">
-    <div class="artclTxtContainer">
-     <div class="artclTitle">
-     Everything About Pull-Ups And Their Variations
-     </div>
-     <div class="artclDesc">
-      The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
 
+      </div>
      </div>
     </div>
    </div>
-   <div class="article">
-    <img class="webimg" src="logo.jpg" alt="">
-    <div class="artclTxtContainer">
-     <div class="artclTitle">
-     Everything About Pull-Ups And Their Variations
-     </div>
-     <div class="artclDesc">
-      The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
 
+      </div>
      </div>
     </div>
    </div>
-   <div class="article">
-    <img class="webimg" src="logo.jpg" alt="">
-    <div class="artclTxtContainer">
-     <div class="artclTitle">
-     Everything About Pull-Ups And Their Variations
-     </div>
-     <div class="artclDesc">
-      The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
 
+      </div>
      </div>
     </div>
    </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
    </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="shadowBox">
+    <div class="article">
+     <img class="mainArticlesImg" src="logo.jpg" alt="">
+     <div class="artclTxtContainer">
+      <div class="artclTitle">
+       Everything About Pull-Ups And Their Variations
+      </div>
+      <div class="artclDesc">
+       The humble pull-up. Beyond a playground staple, it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders - sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+
+      </div>
+     </div>
+    </div>
+   </div>
+
+  </div>
+
+  <div style="
+  margin: 30px;
+  ">
+   Article Of The Day
+  </div>
+
+  <div id="articleODay">
+   <img id="aODImg" src="logo.jpg">
+   <div id="aODTitle">Abu Dhabi</div>
+   <div id="aODContent">
+    <p>
+     The humble pull-up. Beyond a playground staple.
+    </p>
+    <p>
+     it's a cornerstone of functional fitness. This compound exercise engages a symphony of muscle groups - latissimus dorsi, biceps, forearms, core, even shoulders.
+    </p>
+    <p>
+     sculpting a powerful, balanced physique. It's a masterclass in bodyweight control. Without minding gym machines; the pull-up bar is a raw test of strength and resilience. No rep count boasts, just the quiet satisfaction of mastering your own bodyweight, one's body gravity works a weight with each powerful pull. So, approach the bar with focus, engage your core.
+    </p>
+   </div>
+   <div id="expandAOD">
+    <div>Expand</div>
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#FFF"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+   </div>
+  </div>
+
  </div>
- <div style="
- height: 1080px;
- "></div>
-</body>
 
-</html>
+ <div id="footer" style="
+ ">
+
+  <a href="Contact/index.html">•Contact</a><br>
+  <a href="Terms Of Service/index.html">•Terms Of Service</a><br>
+  <a href="About/index.html">•About Us</a><br>
+  <div style="
+  width: 100%;
+  height: 50px;
+  "></div>
+  <div style="
+  font-size: 10px;
+  color: #fff;">
+   ©2024 Vitalest from D1D Groups. All rights reserved.
+  </div>
+ </div>
+ 
+</body>
+ </html>
