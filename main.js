@@ -330,8 +330,14 @@ document.addEventListener('DOMContentLoaded', () => {
    body.style.textShadow = '0 0 .25px #000';
    introDiv.classList.remove('night');
 
-  } else if (trigger0 === null) {
-   localStorage.setItem('trigger', '1');
+  } 
+   else if (trigger0 === null) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+     localStorage.setItem('trigger', '0');
+     } 
+    else {
+     localStorage.setItem('trigger', '1');
+     }
   }
  };
  const themeChange = () => {
