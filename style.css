@@ -146,6 +146,7 @@ a {
 }
 
 #arrowCanvas {
+ outline: 100px solid black;
  position: relative;
  top: 85vh;
  width: 50px;
@@ -212,6 +213,7 @@ a {
  background-color: white;
  background-image: linear-gradient(45deg, #D93D00, 70%, #FFD800);
  -webkit-background-clip: text;
+ background-clip: text;
  -webkit-text-fill-color: transparent;
  font-family: 'Kanit', sans-serif;
  font-size: 65px;
@@ -505,6 +507,7 @@ a {
  background-image: linear-gradient(55deg, #E1A100, 60%, #25009D, 80%, #000000);
  background-size: 100%;
  -moz-background-clip: text;
+ background-clip: text;
  -moz-text-fill-color: transparent;
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
