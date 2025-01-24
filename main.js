@@ -300,13 +300,13 @@ document.addEventListener('DOMContentLoaded', () => {
  // Light/Dark Mode Theme Switch
 
  let trigger0 = localStorage.getItem('trigger');
+
  if (trigger0 === null) {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-     localStorage.setItem('trigger', '0');
-     } 
-    else {
-     localStorage.setItem('trigger', '1');
-     }
+     
+  localStorage.setItem('trigger', '1');
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    localStorage.setItem('trigger', '0');
+    } 
   }
  const staticThemeChange = () => {
   trigger0 = localStorage.getItem('trigger');
