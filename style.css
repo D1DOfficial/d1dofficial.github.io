@@ -607,7 +607,6 @@ a {
 }
 
 #expandAOD.expanded > svg {
- outline: 100px solid black;
  height: 100%;
  transform: rotate(180deg);
 }
