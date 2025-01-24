@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* The Stars Canvas */
   const starsCanvas = document.getElementById('starsCanvas');
   const stx = starsCanvas.getContext('2d');
-  starsCanvas.width = starsCanvas.height = window.innerWidth * 10;
+  starsCanvas.width = starsCanvas.height = window.innerWidth * 5;
   stx.fillStyle = '#fff';
 
   for (let i = 0; i < 500; i++) {
