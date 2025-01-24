@@ -300,6 +300,14 @@ document.addEventListener('DOMContentLoaded', () => {
  // Light/Dark Mode Theme Switch
 
  let trigger0 = localStorage.getItem('trigger');
+ if (trigger0 === null) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+     localStorage.setItem('trigger', '0');
+     } 
+    else {
+     localStorage.setItem('trigger', '1');
+     }
+  }
  const staticThemeChange = () => {
   trigger0 = localStorage.getItem('trigger');
   const themeSwitchContainer = document.getElementById('themeSwitchContainer');
@@ -331,14 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
    introDiv.classList.remove('night');
 
   } 
-   else if (trigger0 === null) {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-     localStorage.setItem('trigger', '0');
-     } 
-    else {
-     localStorage.setItem('trigger', '1');
-     }
-  }
  };
  const themeChange = () => {
 
